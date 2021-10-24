@@ -1,0 +1,15 @@
+<div class="main">
+
+    {% for data in dataset %}
+
+    {{ data.movie_title }}<br />
+    {{ data.release_date }}<br />
+    {{ data.rating }}<br />
+    {{ data.poster_url }}<br />
+    {{ data.synoposis }}<br />
+    {{ data.cast }}<br />
+    <hr />
+
+    {% endfor %}
+
+</div>
