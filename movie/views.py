@@ -6,14 +6,15 @@ from django.shortcuts import (get_object_or_404,
 # Create your views here.
 from .forms import MovieForm
 from .models import Movie
+from django.http import HttpResponse
+from django.core import serializers
 
 
 def retrieve_view_movie(request):
-    context = {}
+    movie_list = Movie.objects.all()
+    output = serializers.serialize('json', movie_list)
+    return HttpResponse(output, content_type='application/json')
 
-    context["dataset"] = Movie.objects.all()
-
-    return render(request, "retrieve_view_movie.html", context)
 
 # def person_data(request):
 #    Person_list = Person.objects.all()
